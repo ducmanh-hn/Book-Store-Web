@@ -1,0 +1,81 @@
+							Phân tích dự án
+							
+1. Front-end : HTML, CSS, JS, Bootstrap
+	- Trang chủ
+		+ Danh sách sản phẩm chia theo category
+	- Trang chi tiết sản phẩm
+	- Trang giỏ hàng
+	- Trang check out
+	- Trang thanh toán hoàn thành
+	- Trang liên hệ
+	- Trang thông tin tài khoản
+		+ đơn hàng của tôi
+	- Trang login, register, forgot-password
+	
+2. Chức năng CRUD
+	- Tài khoản người dùng
+		+ Quản lý role( user, admin...)
+		+ Quản lý người dùng
+		+ Login, logout, register
+	- Quản lý danh mục sản phẩm
+	- Quản lý sản phẩm
+	- Quản lý hóa đơn
+	- Quản lý phản hồi
+	
+3. Database
+	- Bảng role:
+		+ Id : PK
+		+ Name 
+	- Bảng user:
+		+ Id : PK
+		+ name
+		+ date_of_birth
+		+ phone number
+		+ email
+		+ gender :  can null
+		+ address
+		+ password : md5 or sha1
+		+ role_id : FK
+	- Bảng category :
+		+ id : P
+		+ name 
+	- Bảng product <book>:
+		+ id : PK
+		+ category_id : FK
+		+ name
+		+ price : giá
+		+ discount : giảm giá (có dấu gạch)
+		+ sold_amount
+		+ thumbnail: string -> 500 kí tự : link ảnh
+		+ description 1000 ki tu
+		+ list_feedback
+	- Bảng gallery : các ảnh của sp
+		+ id : PK
+		+ product_id : FK
+		+ thumbnail :
+	- Bảng feedback : phản hồi < chưa quan trọng lắm>
+		+ id : PK
+		+ user_id
+		+ feedback
+		+ star
+	- Bảng Order:
+		+ id : PK
+		+ user_id : FK
+		+ order_date
+		+ total_price
+		+ user_address : tại thời điểm mua
+		+ user_phone : tại thời điểm mua
+		+ note
+		+ status (pending, approved, delivery ...)
+	- Bảng Order Detail
+		+ id : PK
+		+ order_id : FK
+		+ product_id : FK
+		+ product_amount : ko thuộc bảng product
+		+ product_ price giá tại thời điểm mua
+		+ total_money : product_amount * product_price
+		
+4. Process
+	b1: xây dựng view - các trang jsp
+	b2: xây dựng model - classes và database  ( hibernate)
+	b3: xây dựng controler - servlet 
